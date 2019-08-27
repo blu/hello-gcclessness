@@ -7,34 +7,31 @@
 // convert x16 to string
 // x0: output buffer
 // w1: value to convert, bits [15:0]
-// clobbers: x2, x3, x4, x5
+// clobbers: x2, x3, x4, x5, x6, x7, x8, x9
 	.align 4
 string_x16:
-	mov     w3, '0'
-	mov     w4, 'a' - 0xa
-	mov     w2, 0
-	bfxil   w2, w1, 12, 4
+	mov     w5, '0'
+	mov     w6, 'a' - 0xa
+	ubfx    w4, w1, 12, 4
+	ubfx    w3, w1,  8, 4
+	ubfx    w2, w1,  4, 4
+	and     w1, w1, 15
+	cmp     w4, 0xa
+	csel    w7, w5, w6, LO
+	cmp     w3, 0xa
+	csel    w8, w5, w6, LO
 	cmp     w2, 0xa
-	csel    w5, w3, w4, LO
-	add     w2, w2, w5
-	strb    w2, [x0], 1
-	mov     w2, 0
-	bfxil   w2, w1, 8, 4
-	cmp     w2, 0xa
-	csel    w5, w3, w4, LO
-	add     w2, w2, w5
-	strb    w2, [x0], 1
-	mov     w2, 0
-	bfxil   w2, w1, 4, 4
-	cmp     w2, 0xa
-	csel    w5, w3, w4, LO
-	add     w2, w2, w5
-	strb    w2, [x0], 1
-	and     w2, w1, 15
-	cmp     w2, 0xa
-	csel    w5, w3, w4, LO
-	add     w2, w2, w5
-	strb    w2, [x0], 1
+	csel    w9, w5, w6, LO
+	cmp     w1, 0xa
+	csel    w5, w5, w6, LO
+	add     w4, w4, w7
+	strb    w4, [x0, 0]
+	add     w3, w3, w8
+	strb    w3, [x0, 1]
+	add     w2, w2, w9
+	strb    w2, [x0, 2]
+	add     w1, w1, w5
+	strb    w1, [x0, 3]
 	ret
 
 // convert x16 to string
