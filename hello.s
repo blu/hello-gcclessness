@@ -50,25 +50,20 @@ string_x16_1:
 	lsr     w2, w1, 4
 	and     w1, w1, w6 // even-index nibbles
 	and     w2, w2, w6 // odd-index nibbles
-	
 	cmp     w5, w1, UXTB
 	csel    w6, w3, w4, HI
 	cmp     w5, w2, UXTB
 	csel    w7, w3, w4, HI
-	
 	add     w1, w1, w6
 	add     w2, w2, w7
 	strb    w1, [x0, 3]
 	strb    w2, [x0, 2]
-	
 	lsr     w1, w1, 8
 	lsr     w2, w2, 8
-	
 	cmp     w5, w1, UXTB
 	csel    w6, w3, w4, HI
 	cmp     w5, w2, UXTB
 	csel    w7, w3, w4, HI
-	
 	add     w1, w1, w6
 	add     w2, w2, w7
 	strb    w1, [x0, 1]
@@ -163,7 +158,7 @@ _start:
 
 	mov     x8, SYS_exit
 	svc     0
-	
+
 	.data
 
 routine_name_txt:

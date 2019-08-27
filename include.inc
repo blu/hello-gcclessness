@@ -34,7 +34,7 @@
   .equ BUFSIZ,               64
   .equ NULL,                  0
   .equ SIGCHLD,              17
-        
+
   // sched.h
   .equ CSIGNAL,              0x000000FF // signal mask to be sent at exit
   .equ CLONE_VM,             0x00000100 // set if VM shared between processes
@@ -72,7 +72,7 @@
   .equ O_TRUNC,   00001000
   .equ O_APPEND,  00002000
   .equ O_NONBLOCK,00004000
-  
+
   .equ SHUT_RDWR,            2
 
   .equ STDIN_FILENO,         0
@@ -94,7 +94,7 @@
   .equ EPOLLWRNORM,          0x100
   .equ EPOLLWRBAND,          0x200
   .equ EPOLLMSG,             0x400
-  
+
   .equ EPOLLEXCLUSIVE,       1 << 28
   .equ EPOLLWAKEUP,          1 << 29
   .equ EPOLLONESHOT,         1 << 30
@@ -105,9 +105,9 @@
   .equ EPOLL_CTL_MOD,        3
 
   // Linux/AArch64 system calls
-  .equ SYS_epoll_create1,   20    
-  .equ SYS_epoll_ctl,       21 
-  .equ SYS_epoll_pwait,     22    
+  .equ SYS_epoll_create1,   20
+  .equ SYS_epoll_ctl,       21
+  .equ SYS_epoll_pwait,     22
   .equ SYS_dup3,            24
   .equ SYS_fcntl,           25
   .equ SYS_statfs,          43
@@ -115,14 +115,14 @@
   .equ SYS_chroot,          51
   .equ SYS_fchmodat,        53
   .equ SYS_openat,          56
-  .equ SYS_close,           57 
-  .equ SYS_pipe2,           59    
-  .equ SYS_read,            63 
-  .equ SYS_write,           64 
+  .equ SYS_close,           57
+  .equ SYS_pipe2,           59
+  .equ SYS_read,            63
+  .equ SYS_write,           64
   .equ SYS_pselect6,        72
   .equ SYS_ppoll,           73
   .equ SYS_splice,          76
-  .equ SYS_exit,            93 
+  .equ SYS_exit,            93
   .equ SYS_futex,           98
   .equ SYS_kill,           129
   .equ SYS_reboot,         142
@@ -132,10 +132,10 @@
   .equ SYS_getpid,         172
   .equ SYS_getppid,        173
   .equ SYS_getuid,         174
-  .equ SYS_getgid,         176 
+  .equ SYS_getgid,         176
   .equ SYS_gettid,         178
-  .equ SYS_socket,         198 
-  .equ SYS_bind,           200 
+  .equ SYS_socket,         198
+  .equ SYS_bind,           200
   .equ SYS_listen,         201
   .equ SYS_accept,         202
   .equ SYS_connect,        203
