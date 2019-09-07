@@ -130,6 +130,8 @@ string_x64:
 	str     q0, [x0]
 	ret
 
+	.equ   sample_x64, 0x123456789abcdef
+
 // program entry point
 _start:
 	mov     x8, SYS_write
@@ -141,7 +143,7 @@ _start:
 	mov     x28, 4096 * 65536
 1:
 	adr     x0, buffer_txt
-	movq    x1, 0x123456789abcdef
+	movq    x1, sample_x64
 	bl      string_x64
 
 	subs    x28, x28, 1
@@ -154,12 +156,34 @@ _start:
 	svc     0
 
 	mov     x8, SYS_exit
+	mov     x0, 0
 	svc     0
+
+// assemble an ascii character from a 4-bit hex value
+.macro ascii_from_x4, val:req
+	.if 0xa > \val
+		.byte \val + 0x30 - 0x0
+	.else
+		.byte \val + 0x61 - 0xa
+	.endif
+.endm
+
+// assemble an ascii sequence from a 64-bit hex value
+.macro ascii_from_x64, val:req
+	.set i, 0
+	.rept 16
+		ascii_from_x4 (\val >> ((15 - i) * 4) & 0xf)
+		.set i, i + 1
+	.endr
+.endm
 
 	.data
 
+	.altmacro
 routine_name_txt:
-	.ascii "string_xNN(0x123456789abcdef)\n"
+	.ascii "string_xNN("
+	ascii_from_x64 %sample_x64
+	.ascii ")\n"
 routine_name_len = . - routine_name_txt
 
 	.align 4
