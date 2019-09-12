@@ -23,3 +23,5 @@ All data in L1 caches, optimal alignment:
 | Cortex-A72 @1.8GHz                     | 0m2.875s                     |  93M      | 1494M     | 1.20        |
 | Cortex-A73 @1.8GHz                     | 0m1.794s                     | 150M      | 2394M     | 0.75        |
 | Cortex-A53 @1.5GHz                     | 0m4.300s                     |  62M      |  999M     | 1.50        |
+| **string_x64_1** : alt scheduling      |                              |           |           |             |
+| Cortex-A72 @2.0GHz                     | 0m2.552s                     | 105M      | 1683M     | 1.19        |

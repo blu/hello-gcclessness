@@ -130,6 +130,27 @@ string_x64:
 	str     q0, [x0]
 	ret
 
+// convert x64 to string
+// x0: output buffer
+// x1: value to convert, bits [63:0]
+// clobbers: v0, v1, v3, v4, v5, v6
+	.align 4
+string_x64_1:
+	rev     x1, x1 // we write the result via a single store op, so correct for digit order, part one: swap octet order
+	movi    v6.16b, 0xf
+	mov     v0.d[0], x1
+	movi    v3.16b, '0'
+	movi    v4.16b, 'a' - 0xa
+	movi    v5.16b, 0xa
+	ushr    v1.8b, v0.8b, 4
+	and     v0.8b, v0.8b, v6.8b
+	zip1    v0.16b, v1.16b, v0.16b // we write the result via a single store op, so correct for digit order, part two: swap nibble order
+	cmhi    v1.16b, v5.16b, v0.16b
+	bsl     v1.16b, v3.16b, v4.16b
+	add     v0.16b, v0.16b, v1.16b
+	str     q0, [x0]
+	ret
+
 	.equ   sample_x64, 0x123456789abcdef
 
 // program entry point
