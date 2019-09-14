@@ -10,7 +10,7 @@
 // clobbers: x2, x3, x4, x5, x6, x7, x8, x9
 	.align 4
 string_x16:
-	mov     w5, '0'
+	mov     w5, '0' - 0x0
 	mov     w6, 'a' - 0xa
 	ubfx    w4, w1, 12, 4
 	ubfx    w3, w1,  8, 4
@@ -40,7 +40,7 @@ string_x16:
 // clobbers: x2, x3, x4, x5, x6, x7
 	.align 4
 string_x16_1:
-	mov     w3, '0'
+	mov     w3, '0' - 0x0
 	mov     w4, 'a' - 0xa
 	mov     w5, 0xa
 	mov     w6, 0x0f0f
@@ -74,7 +74,7 @@ string_x16_1:
 	.align 4
 string_x16_2:
 	rev16   w1, w1 // we write the result via a single store op, so correct for digit order, part one: swap octet order
-	movi    v3.8b, '0'
+	movi    v3.8b, '0' - 0x0
 	movi    v4.8b, 'a' - 0xa
 	movi    v5.8b, 0xa
 	movi    v6.8b, 0xf
@@ -95,7 +95,7 @@ string_x16_2:
 	.align 4
 string_x32:
 	rev     w1, w1 // we write the result via a single store op, so correct for digit order, part one: swap octet order
-	movi    v3.8b, '0'
+	movi    v3.8b, '0' - 0x0
 	movi    v4.8b, 'a' - 0xa
 	movi    v5.8b, 0xa
 	movi    v6.8b, 0xf
@@ -116,7 +116,7 @@ string_x32:
 	.align 4
 string_x64:
 	rev     x1, x1 // we write the result via a single store op, so correct for digit order, part one: swap octet order
-	movi    v3.16b, '0'
+	movi    v3.16b, '0' - 0x0
 	movi    v4.16b, 'a' - 0xa
 	movi    v5.16b, 0xa
 	movi    v6.16b, 0xf
@@ -139,7 +139,7 @@ string_x64_1:
 	rev     x1, x1 // we write the result via a single store op, so correct for digit order, part one: swap octet order
 	movi    v6.16b, 0xf
 	mov     v0.d[0], x1
-	movi    v3.16b, '0'
+	movi    v3.16b, '0' - 0x0
 	movi    v4.16b, 'a' - 0xa
 	movi    v5.16b, 0xa
 	ushr    v1.8b, v0.8b, 4
@@ -163,9 +163,17 @@ _start:
 
 	mov     x28, 4096 * 65536
 1:
+.ifdef test_itoa
+	movq    x0, sample_x64
+	adr     x1, buffer_txt + 16
+	mov     x2, 16  // radix
+	mov     x3, xzr // ascii case: lower
+	bl      _itoa_word
+.else
 	adr     x0, buffer_txt
 	movq    x1, sample_x64
 	bl      string_x64
+.endif
 
 	subs    x28, x28, 1
 	bne     1b
@@ -177,7 +185,7 @@ _start:
 	svc     0
 
 	mov     x8, SYS_exit
-	mov     x0, 0
+	mov     x0, xzr
 	svc     0
 
 // assemble an ascii character from a 4-bit hex value
