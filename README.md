@@ -43,3 +43,5 @@ In comparison, libc-2.27 **\_itoa_word** [^1] performance:
 | Cortex-A72 @2.1GHz                     | 0m5.490s                     |  49M      | 782M      | 2.68        |
 
 [^1]: libc inner implementation of **itoa**, sans stack guards and fail checks. Uses LUTs and supports upper- and lower-case translations.
+
+![Mchar/s](chart.png "Mchar/s")
