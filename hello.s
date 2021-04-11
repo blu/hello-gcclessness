@@ -151,7 +151,7 @@ string_x64_1:
 	str     q0, [x0]
 	ret
 
-	.equ   sample_x64, 0x123456789abcdef
+	.equ    sample_x64, 0x123456789abcdef
 
 // program entry point
 _start:
