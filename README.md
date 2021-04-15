@@ -22,28 +22,28 @@ All data in L1 cache, optimal alignment:
 | Cortex-A53 @1.5GHz                     | 0m3.582s                     |   75       |   300   |  5.00    |
 | Cortex-A53 @1.7GHz                     | 0m3.162s                     |   85       |   340   |  5.01    |
 | Cortex-A76 @3.0GHz                     | 0m0.901s                     |  298       |  1192   |  2.52    |
-| Firestorm @3.2GHz                      | 0m0.394s                     |  681       |  2725   |  1.17    |
+| Firestorm @3.2GHz                      | 0m0.362s                     |  742       |  2966   |  1.08    |
 | **string_x16_2** : asimd version       |                              |            |         |          |
 | Cortex-A72 @2.1GHz                     | 0m1.155s                     |  232       |   930   |  2.26    |
 | Cortex-A73 @1.8GHz                     | 0m1.645s                     |  163       |   653   |  2.76    |
 | Cortex-A73 @2.55GHz                    | 0m1.167s                     |  230       |   920   |  2.77    |
 | Cortex-A53 @1.7GHz                     | 0m3.160s                     |   85       |   340   |  5.00    |
 | Cortex-A76 @3.0GHz                     | 0m0.582s                     |  461       |  1845   |  1.63    |
-| Firestorm @3.2GHz                      | 0m0.283s                     |  949       |  3794   |  0.84    |
+| Firestorm @3.2GHz                      | 0m0.253s                     | 1061       |  4244   |  0.75    |
 | **string_x32** : 32-bit hex to string  |                              |            |         |          |
 | Cortex-A72 @2.1GHz                     | 0m1.152s                     |  233       |  1864   |  1.13    |
 | Cortex-A73 @1.8GHz                     | 0m1.645s                     |  163       |  1305   |  1.38    |
 | Cortex-A73 @2.55GHz                    | 0m1.164s                     |  231       |  1845   |  1.38    |
 | Cortex-A53 @1.7GHz                     | 0m3.163s                     |   85       |   679   |  2.50    |
 | Cortex-A76 @3.0GHz                     | 0m0.583s                     |  460       |  3684   |  0.81    |
-| Firestorm @3.2GHz                      | 0m0.293s                     |  916       |  7329   |  0.44    |
+| Firestorm @3.2GHz                      | 0m0.253s                     | 1061       |  8488   |  0.38    |
 | **string_x64** : 64-bit hex to string  |                              |            |         |          |
 | Cortex-A72 @2.1GHz                     | 0m1.360s                     |  197       |  3158   |  0.66    |
 | Cortex-A73 @1.8GHz                     | 0m1.794s                     |  150       |  2394   |  0.75    |
 | Cortex-A73 @2.55GHz                    | 0m1.262s                     |  213       |  3403   |  0.75    |
 | Cortex-A53 @1.7GHz                     | 0m3.792s                     |   71       |  1133   |  1.50    |
 | Cortex-A76 @3.0GHz                     | 0m0.582s                     |  461       |  7380   |  0.41    |
-| Firestorm @3.2GHz                      | 0m0.291s                     |  922       | 14759   |  0.22    |
+| Firestorm @3.2GHz                      | 0m0.253s                     | 1061       | 16976   |  0.19    |
 | NV Carmel @1.907GHz                    | 0m0.145s [^2]                | 1851       | 29620   |  0.06    |
 | **string_x64_1** : alt scheduling      |                              |            |         |          |
 | Cortex-A72 @2.1GHz                     | 0m1.372s                     |  196       |  3130   |  0.67    |
@@ -51,7 +51,7 @@ All data in L1 cache, optimal alignment:
 | Cortex-A73 @2.55GHz                    | 0m1.270s                     |  211       |  3382   |  0.75    |
 | Cortex-A53 @1.7GHz                     | 0m3.633s                     |   74       |  1182   |  1.44    |
 | Cortex-A76 @3.0GHz                     | 0m0.581s                     |  462       |  7392   |  0.41    |
-| Firestorm @3.2GHz                      | 0m0.292s                     |  919       | 14709   |  0.22    |
+| Firestorm @3.2GHz                      | 0m0.253s                     | 1061       | 16976   |  0.19    |
 
 In comparison, libc-2.27 **\_itoa_word** [^1] performance:
 
