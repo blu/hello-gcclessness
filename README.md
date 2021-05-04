@@ -1,9 +1,9 @@
 # hello-gcclessness
-What do you do when you're on vacation and you're left without a compiler?
+Miscellaneous utilities modeled after libc such. All string\*.s routines are AAPCS64-compliant and ready for linking against c++ code via
 
-Fall back to `as` and `ld`, of course.
+	extern "C" void name(args..) asm ("asm_name");
 
-# building
+# building the benchmark
 The build script works on native aarch64 as well as on a specific arm64-deb-packages-over-armhf-userspace setup.
 
 	$ ./build.sh # for string_xNN  
