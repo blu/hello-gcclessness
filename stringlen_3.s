@@ -6,7 +6,7 @@
 // count number of characters in a cstr
 // x0: char ptr
 // return x0: count of characters
-// clobbers: x1, x2, x3, x4, v0, v1, v2, v3, v4, v5, v6, v7
+// clobbers: x1, x2, x3, v0, v1, v2, v3, v4, v5, v6, v7
 	.equ    pot_batch, 32
 	.align 6
 stringlen_3:
