@@ -8,7 +8,7 @@
 // return x0: count of characters
 // clobbers: x1, x2, x3, v0, v1, v2, v3
 	.equ    pot_batch, 16
-	.align 4
+	.align 6
 stringlen:
 	ldr     q1, =0x0f0e0d0c0b0a09080706050403020100
 	movi    v2.16b, pot_batch

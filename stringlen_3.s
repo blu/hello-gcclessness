@@ -1,6 +1,6 @@
 	.arch armv8-a
 
-	.global stringlen_2
+	.global stringlen_3
 	.text
 
 // count number of characters in a cstr
@@ -9,7 +9,7 @@
 // clobbers: x1, x2, x3, x4, v0, v1, v2, v3, v4, v5, v6, v7
 	.equ    pot_batch, 32
 	.align 6
-stringlen_2:
+stringlen_3:
 	ldr     q2, =0x0f0e0d0c0b0a09080706050403020100
 	ldr     q5, =0x1f1e1d1c1b1a19181716151413121110
 	movi    v3.16b, pot_batch
@@ -22,15 +22,11 @@ stringlen_2:
 	cmeq    v1.16b, v1.16b, 0
 	bsl     v0.16b, v2.16b, v3.16b
 	bsl     v1.16b, v5.16b, v3.16b
+	umin    v0.16b, v0.16b, v1.16b
 	uminv   b0, v0.16b
-	uminv   b1, v1.16b
 	fmov    w2, s0
-	fmov    w4, s1
 	cmp     w2, pot_batch - 1
-	ccmp    w4, pot_batch - 1, 0, hi
 	bhi     .Lloop
-	cmp     w2, w4
-	csel    w2, w2, w4, ls
 	sub     x0, x0, x1
 	add     x0, x0, x2
 	ret
@@ -46,15 +42,11 @@ stringlen_2:
 	and     v1.16b, v1.16b, v7.16b
 	bsl     v0.16b, v2.16b, v3.16b
 	bsl     v1.16b, v5.16b, v3.16b
+	umin    v0.16b, v0.16b, v1.16b
 	uminv   b0, v0.16b
-	uminv   b1, v1.16b
 	fmov    w2, s0
-	fmov    w4, s1
 	cmp     w2, pot_batch - 1
-	ccmp    w4, pot_batch - 1, 0, hi
 	add     x1, x0, x3
 	bhi     .Lloop
-	cmp     w2, w4
-	csel    w2, w2, w4, ls
 	sub     x0, x2, x3
 	ret
