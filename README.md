@@ -1,5 +1,5 @@
 # hello-gcclessness
-Miscellaneous utilities modeled after libc such. All string\*.s routines are AAPCS64-compliant and ready for linking against c++ code via
+Miscellaneous utilities modelled after libc such. All string\*.s routines are AAPCS64-compliant and ready for use by c++ code via
 
 	extern "C" void name(args..) asm ("asm_name");
 
