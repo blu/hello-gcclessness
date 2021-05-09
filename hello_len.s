@@ -53,6 +53,8 @@ _start:
 	bl      __strlen_generic
 .elseif ALT == 98
 	bl      __strlen_asimd
+.elseif ALT == 7
+	bl      stringlen_7
 .elseif ALT == 6
 	bl      stringlen_6
 .elseif ALT == 5
