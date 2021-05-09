@@ -3,11 +3,11 @@ Miscellaneous utilities modelled after libc such. All string\*.s routines are AA
 
 	extern "C" void name(args..) asm ("asm_name");
 
-# building the benchmark
-The build script works on native aarch64 as well as on a specific arm64-deb-packages-over-armhf-userspace setup.
+# building the benchmarks
+The build scripts work on native aarch64 as well as on a specific arm64-deb-packages-over-armhf-userspace setup.
 
-	$ ./build.sh # for string_xNN  
-	$ ./build.sh --defsym test_itoa=1 # for libc _itoa_word
+	$ ./build_something.sh # for ALT == 0
+	$ ./build_something.sh --defsym ALT=N
 
 # benchmarking
 All data in L1 cache, optimal alignment:

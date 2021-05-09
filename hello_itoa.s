@@ -16,12 +16,36 @@ _start:
 
 	mov     x28, 4096 * 65536
 1:
-.ifdef test_itoa
+.if ALT == 99
 	movq    x0, sample_x64
 	adr     x1, buffer_txt + 16
 	mov     x2, 16  // radix
 	mov     x3, xzr // ascii case: lower
 	bl      _itoa_word
+.elseif ALT == 6
+	adr     x0, buffer_txt
+	movq    x1, sample_x64
+	bl      string_x8
+.elseif ALT == 5
+	adr     x0, buffer_txt
+	movq    x1, sample_x64
+	bl      string_x16_2
+.elseif ALT == 4
+	adr     x0, buffer_txt
+	movq    x1, sample_x64
+	bl      string_x16_1
+.elseif ALT == 3
+	adr     x0, buffer_txt
+	movq    x1, sample_x64
+	bl      string_x16
+.elseif ALT == 2
+	adr     x0, buffer_txt
+	movq    x1, sample_x64
+	bl      string_x32
+.elseif ALT == 1
+	adr     x0, buffer_txt
+	movq    x1, sample_x64
+	bl      string_x64_1
 .else
 	adr     x0, buffer_txt
 	movq    x1, sample_x64
