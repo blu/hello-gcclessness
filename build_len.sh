@@ -14,4 +14,4 @@ LD_LIBRARY_PATH=$lib_path $root/lib/ld-linux-aarch64.so.1 $root/usr/bin/aarch64-
 LD_LIBRARY_PATH=$lib_path $root/lib/ld-linux-aarch64.so.1 $root/usr/bin/aarch64-linux-gnu-as stringlen_5.s -o stringlen_5.o
 LD_LIBRARY_PATH=$lib_path $root/lib/ld-linux-aarch64.so.1 $root/usr/bin/aarch64-linux-gnu-as hello_len.s -o hello_len.o $@
 LD_LIBRARY_PATH=$lib_path $root/lib/ld-linux-aarch64.so.1 $root/usr/bin/aarch64-linux-gnu-as stub.s -o stub.o
-LD_LIBRARY_PATH=$lib_path $root/lib/ld-linux-aarch64.so.1 $root/usr/bin/aarch64-linux-gnu-ld stringlen.o stringlen_1.o stringlen_2.o stringlen_3.o stringlen_4.o stringlen_5.o hello_len.o libc/_itoa.o libc/itoa-digits.o libc/itoa-udigits.o stub.o -o hello_len
+LD_LIBRARY_PATH=$lib_path $root/lib/ld-linux-aarch64.so.1 $root/usr/bin/aarch64-linux-gnu-ld stringlen.o stringlen_1.o stringlen_2.o stringlen_3.o stringlen_4.o stringlen_5.o hello_len.o libc/strlen_generic.o libc/strlen_asimd.o -o hello_len

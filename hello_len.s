@@ -50,7 +50,9 @@ _start:
 .Lstring:
 	mov     x0, x26
 .if ALT == 99
-	bl      _strlen
+	bl      __strlen_generic
+.elseif ALT == 98
+	bl      __strlen_asimd
 .elseif ALT == 5
 	bl      stringlen_5
 .elseif ALT == 4
