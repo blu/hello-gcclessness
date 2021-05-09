@@ -6,7 +6,7 @@ Miscellaneous utilities modelled after libc such. All string\*.s routines are AA
 # building the benchmarks
 The build scripts work on native aarch64 as well as on a specific arm64-deb-packages-over-armhf-userspace setup.
 
-	$ ./build_something.sh # for ALT == 0
+	$ ./build_something.sh # for ALT=0
 	$ ./build_something.sh --defsym ALT=N
 
 # benchmarking
