@@ -42,7 +42,7 @@ _start:
 	mov     x0, x9
 	svc     0
 
-	mov     x28, 10000
+	mov     x28, 32768
 	adr     x27, buffer_txt
 	add     x27, x27, BUFFER_MIN
 .Lrep:
