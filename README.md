@@ -45,6 +45,7 @@ All data in L1 cache, optimal alignment:
 | Cortex-A76 @3.0GHz                     | 0m0.569s                     |  472       |  7548   |  0.40    |
 | Firestorm @3.2GHz                      | 0m0.253s                     | 1061       | 16976   |  0.19    |
 | NV Carmel @1.907GHz                    | 0m0.145s [^2]                | 1851       | 29620   |  0.06    |
+| NV Carmel @2.265GHz                    | 0m0.121s [^2]                | 2218       | 35496   |  0.06    |
 | **string_x64_1** : alt scheduling      |                              |            |         |          |
 | Cortex-A72 @2.1GHz                     | 0m1.372s                     |  196       |  3130   |  0.67    |
 | Cortex-A73 @1.8GHz                     | 0m1.794s                     |  150       |  2394   |  0.75    |
