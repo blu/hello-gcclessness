@@ -58,6 +58,8 @@ _start:
 	bl      __strlen_generic
 .elseif ALT == 98
 	bl      __strlen_asimd
+.elseif ALT == 9
+	bl      stringlen_9
 .elseif ALT == 8
 	bl      stringlen_8
 .elseif ALT == 7
