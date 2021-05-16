@@ -9,6 +9,11 @@
 
 // program entry point
 _start:
+	// reset fpcr.FZ as some participants requre that
+	mrs     x0, fpcr
+	and     w0, w0, ~(1 << 24)
+	msr     fpcr, x0
+
 	mov     x8, SYS_openat
 	mov     x2, O_RDONLY
 	adr     x1, filename_rand
@@ -53,6 +58,8 @@ _start:
 	bl      __strlen_generic
 .elseif ALT == 98
 	bl      __strlen_asimd
+.elseif ALT == 8
+	bl      stringlen_8
 .elseif ALT == 7
 	bl      stringlen_7
 .elseif ALT == 6
