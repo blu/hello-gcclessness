@@ -4,7 +4,7 @@
 	.text
 
 // count number of characters in a cstr
-// special prerequisite: fpcr.FZ must be low
+// special prerequisite: fpcr.FZ and fpcr.AH must be low
 // x0: char ptr
 // return x0: count of characters
 // clobbers: x1, x2, x3, v0, v1, v2, v3, v4, v5, v6, v7
