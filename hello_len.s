@@ -32,7 +32,8 @@ _start:
 
 	mov     x8, SYS_read
 	mov     x2, BUFFER_MIN
-	adr     x1, buffer_txt
+	adrp    x1, buffer_txt
+	add     x1, x1, :lo12:buffer_txt
 	svc     0
 	cmp     x0, BUFFER_MIN
 	beq     .Lclose
@@ -48,10 +49,12 @@ _start:
 	svc     0
 
 	mov     x28, 32768
-	adr     x27, buffer_txt
+	adrp    x27, buffer_txt
+	add     x27, x27, :lo12:buffer_txt
 	add     x27, x27, BUFFER_MIN
 .Lrep:
-	adr     x26, buffer_txt
+	adrp    x26, buffer_txt
+	add     x26, x26, :lo12:buffer_txt
 .Lstring:
 	mov     x0, x26
 .if ALT == 99
@@ -94,7 +97,7 @@ _start:
 	.data
 
 filename_rand:
-	.ascii	"./rand"
+	.ascii  "./rand"
 
 	.bss
 
